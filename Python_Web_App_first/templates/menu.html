@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS Shop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #27293d;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #f39c12 3px solid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        header a {
+            color: #f39c12;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .main {
+            padding: 20px;
+            background: #2e2e4e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .coin-image {
+			margin-top: 20px;
+			border-radius: 10px;
+			width: 200px;  /* Adjust this value as needed */
+			height: auto;  /* Automatically adjusts height to maintain aspect ratio */
+		}
+        .coin-icon {
+			margin-top: 20px;
+			border-radius: 10px;
+			width: 50px;  /* Adjust this value as needed */
+			height: auto;  /* Automatically adjusts height to maintain aspect ratio */
+		}
+
+        .section {
+            margin-bottom: 40px;
+        }
+        h2, h3 {
+            color: #f39c12;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            margin: 5px 0;
+        }
+		.profile-pic {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ATLAS Shop</h1>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('servers') }}">Servers</a></li>
+                <li><a href="{{ url_for('login') }}">Admins</a></li>
+            </ul>
+        </div>
+        <img class="profile-pic" src="{{ url_for('static', filename='images/ak-arctic-gamer.jpg') }}" alt="AK Arctic Gamer Profile Picture">
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <div class="section">
+                <h2>In Game ATLAS Shop Points <img class="coin-icon" src="{{ url_for('static', filename='images/Coin-icon.png') }}" alt="Coin Image"></h2>
+                <ul>
+                    <li>1000 Points for $10</li>
+                    <li>2500 Points for $20</li>
+				</ul>
+            </div>
+
+            <div class="section">
+                <h2>Mythic Tier Kits ATLAS Shop</h2>
+                <h3>(If you have spent more than $100)(Unlock Premium Time 3x points for time in the server)</h3>
+                <ul>
+                    <li>Boat 200% token - 2000 Points</li>
+                    <li>1 Mythic Deck - 250 Points</li>
+                    <li>10 Mythic Planks - 1000 Points</li>
+                    <li>10 Mythic Gunports - 1000 Points</li>
+                    <li>1 Mythic Speed Sail - 500 Points</li>
+                    <li>1 Mythic Handling Sail - 500 Points</li>
+                    <li>Mythic Armored Boat - 3000 Points</li>
+                    <li>LvL 60 Tames - 1500 Points</li>
+                    <li>Mythic Armor Set - 500 Points</li>
+                    <li>Can't Touch this (50 Medium or Large Cannons, 35 Puckles, 10 Ballista, 10 Mortars, 10 catapults) - 5000 Points</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Journeyman Kits ATLAS Shop</h2>
+                <h3>(If you have spent more than $50)</h3>
+                <ul>
+                    <li>Journeyman Boat - 1500 Points</li>
+                    <li>Journeyman Armored Boat - 2000 Points</li>
+                    <li>LvL 20 Tames - 1000 Points</li>
+                    <li>FOB (20 Medium or Large Cannons, 15 Puckles, 5 Ballistas, 5 Mortars, 5 catapults) - 2000 Points</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Common Kits ATLAS Shop</h2>
+                <h3>(Default Kits for all Players)</h3>
+                <ul>
+                    <li>Rifleman Kit (Carbine, 200 carbine ammo, Metal Armor, 2 x grog) - 100 Points</li>
+                    <li>Scout Kit (Glide suit, Hide Armor, Grapple, Climbing Picks, 2 x grog) - 100 Points</li>
+                    <li>Swashbuckler kit (sword, metal shield, metal armor, 2 x grog) - 100 Points</li>
+                    <li>Pikeman kit (pike, metal armor, 2 x grog) - 75 Points</li>
+                    <li>Feast Kit (5 Fish and Chips, 5 Pork Pies, 2 waterskins) - 25 Points</li>
+                    <li>Vitamin Kit (5 Unthinkable delicacy, 2 waterskins) - 100 Points</li>
+                    <li>Homeless Kit (16 wood foundations, 16 wood ceilings, 16 wood walls) - 100 Points</li>
+                    <li>Spawn Point Kit (1 wood foundation, 1 bed) - 25 Points</li>
+                    <li>Schooner (1 common schooner with 1 large and 1 small speed sail) - 1000 Points</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Shop Items ATLAS Shop</h2>
+                <h3>(Is not tied to any permissions AKA Default access to anyone)</h3>
+                <ul>
+                    <li>1 Gold - 1 Points</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currently Hosted Servers</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #27293d;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #f39c12 3px solid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        header a {
+            color: #f39c12;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .main {
+            padding: 20px;
+            background: #2e2e4e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            background-color: #f39c12;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        .discord-invite {
+            margin-top: 20px;
+            display: inline-block;
+        }
+		.profile-pic {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-top: 20px;
+        }
+        .server-list {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .server-item {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .server-title {
+            font-size: 22px;
+            color: #f39c12;
+            margin-bottom: 10px;
+        }
+        .server-description {
+            font-size: 16px;
+            color: #ccc;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #f39c12;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .under-construction { 
+			background-color: #000000; /* Black */ 
+			padding: 15px; 
+			border-radius: 5px; 
+			color: #ffffff; /* White text for better readability */
+			}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Servers hosted by AK Arctic Gaming</h1>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('servers') }}">Servers</a></li>
+                <li><a href="{{ url_for('login') }}">Admins</a></li>
+            </ul>
+        </div>
+		<img class="profile-pic" src="{{ url_for('static', filename='images/ak-arctic-gamer.jpg') }}" alt="AK Arctic Gamer">
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <h2>Currently Hosted Servers</h2>
+            
+            <!-- Currently Active Servers -->
+            <div class="server-list">
+                <h3 class="section-title">Currently Active Servers</h3>
+                <div class="server-item">
+                    <h3 class="server-title">ATLAS MMO</h3>
+                    <p class="server-description">ATLAS is an open-world multiplayer pirate game where you can explore vast oceans, conquer islands, and engage in epic battles with other players. Create your crew, build ships, and establish your empire on the high seas.</p>
+                </div>
+            </div>
+            
+            <!-- Under Construction Servers -->
+            <div class="server-list">
+                <h3 class="section-title">Under Construction</h3>
+                <div class="server-item under-construction">
+					<h3 class="server-title">Rust</h3>
+					<p class="server-description">Rust is a multiplayer-only survival video game developed by Facepunch Studios. In Rust, you can build and defend your own base, gather resources, craft tools and weapons, and team up with or compete against other players. Experience the thrill of survival in a harsh, post-apocalyptic world.</p>
+				</div>
+                <div class="server-item under-construction">
+                    <h3 class="server-title">Space Engineers 2</h3>
+                    <p class="server-description">Space Engineers 2 is a sandbox game where players can build spaceships, stations, and explore space. The game focuses on engineering, construction, and exploration, set in a futuristic space environment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact AK Arctic Gamer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #27293d;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #f39c12 3px solid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        header a {
+            color: #f39c12;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .main {
+            padding: 20px;
+            background: #2e2e4e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            background-color: #f39c12;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        .discord-invite {
+            margin-top: 20px;
+            display: inline-block;
+        }
+		.profile-pic {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Contact AK Arctic Gamer</h1>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('servers') }}">Servers</a></li>
+                <li><a href="{{ url_for('login') }}">Admins</a></li>
+            </ul>
+        </div>
+		<img class="profile-pic" src="{{ url_for('static', filename='images/ak-arctic-gamer.jpg') }}" alt="AK Arctic Gamer">
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <h2>Get in Touch with AK Arctic Gamer</h2>
+            <p>Join the community on Discord and connect with AK Arctic Gamer and other fans!</p>
+            <a class="button discord-invite" href="https://discord.gg/UxhKJdtBD7" target="_blank">Join Discord</a>
+        </div>
+    </div>
+</body>
+</html>

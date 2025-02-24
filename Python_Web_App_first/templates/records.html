@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Records</title>
+    <style>
+        :root {
+            --background-color: #1e1e2e;
+            --primary-color: #f39c12;
+            --header-color: #27293d;
+            --container-width: 80%;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: var(--container-width);
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: var(--header-color);
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: var(--primary-color) 3px solid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header img {
+            height: 50px;
+        }
+
+        header a {
+            color: var(--primary-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        header li {
+            display: inline;
+            padding: 0 20px;
+        }
+
+        .main {
+            padding: 20px;
+            background: #2e2e4e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid var(--primary-color);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--primary-color);
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-top: 20px;
+        }
+
+        .search-form {
+            margin-bottom: 20px;
+        }
+
+        .total-amount {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+		
+		.sort-buttons { margin: 20px 0; 
+		} 
+		
+		.sort-button { 
+			display: inline-block; 
+			background-color: var(--primary-color); 
+			color: #fff; 
+			padding: 10px 20px; 
+			margin: 5px; 
+			text-decoration: none; 
+			border-radius: 5px; 
+			transition: background-color 0.3s ease; 
+		}
+		
+		.sort-buttons a:hover { 
+		background-color: var(--button-hover-bg);
+		}
+		
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header ul {
+                padding: 10px 0;
+            }
+
+            header li {
+                display: block;
+                padding: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Purchase Records</h1>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('servers') }}">Servers</a></li>
+                <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                <li><a href="{{ url_for('records') }}">Records</a></li>
+                <li><a href="{{ url_for('permissions') }}">Permissions</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+        <img class="profile-pic" src="{{ url_for('static', filename='images/ak-arctic-gamer.jpg') }}" alt="AK Arctic Gamer Profile Picture">
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <h2>All Purchase Records</h2>
+            <form class="search-form" action="{{ url_for('records') }}" method="GET">
+                <input type="text" name="steam_id" placeholder="Search by Steam ID">
+                <button type="submit">Search</button>
+            </form>
+			<div class="sort-buttons"> 
+				<a class="sort-button" href="{{ url_for('records', sort='asc') }}">Sort by Date Ascending</a>
+				<a class="sort-button" href="{{ url_for('records', sort='desc') }}">Sort by Date Descending</a> 
+			</div>
+            <table>
+                <tr>
+                    <th>Steam ID</th>
+                    <th>Points</th>
+                    <th>Amount Spent ($)</th>
+                    <th>Purchase Date</th>
+                </tr>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record['steam_id'] }}</td>
+                    <td>{{ record['points'] }}</td>
+                    <td>{{ record['amount_spent'] }}</td>
+                    <td>{{ record['purchase_date'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="total-amount">
+                Total Amount Spent: ${{ total_amount_spent }}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

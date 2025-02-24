@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK Arctic Gamer - Home</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #27293d;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #f39c12 3px solid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        header a {
+            color: #f39c12;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .main {
+            padding: 20px;
+            background: #2e2e4e;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #f39c12;
+            padding-bottom: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            background-color: #f39c12;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #e67e22;
+        }
+        .profile-pic {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AK Arctic Gamer</h1>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('menu') }}">Menu</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('servers') }}">Servers</a></li>
+                <li><a href="{{ url_for('login') }}">Admins</a></li>
+            </ul>
+        </div>
+        <img class="profile-pic" src="{{ url_for('static', filename='images/ak-arctic-gamer.jpg') }}" alt="AK Arctic Gamer">
+    </header>
+
+    <div class="container">
+        <div class="main">
+            <div class="section">
+                <h2>Welcome to AK Arctic Gaming – the ultimate haven for gamers who crave thrilling adventures and camaraderie!</h2>
+                <p>
+					The ultimate haven for gamers who crave thrilling adventures and camaraderie! <br><br>
+					Here, we pride ourselves on hosting top-notch personal servers for a variety of games, providing a seamless and immersive gaming experience tailored for our vibrant community.
+				</p>
+				<p>
+					Whether you're seeking competitive challenges or casual fun with friends, <strong>AK Arctic Gaming</strong> is where players unite, form epic teams, and create unforgettable moments.
+				</p>
+				<p style="font-size: 1.2em; font-weight: bold; color: #ff4500;">
+					The Arctic is calling – will you answer?
+				</p>
+            </div>
+            <div class="section">
+                <h1>Why Play on Our Self-Hosted Server?</h1> 
+				<ul> 
+					<li>**Unique Customization**: Enjoy exclusive mods, plugins, and features tailored just for our community.</li> 
+					<li>**Low Latency**: Experience seamless gameplay with minimal lag, thanks to our high-performance server setup.</li> 
+					<li>**Dedicated Support**: Our admin team is always available to assist you with any issues or questions.</li> 
+					<li>**Community Driven**: Join a friendly and active community where your feedback shapes the server.</li> 
+					<li>**Regular Events**: Participate in exciting events, challenges, and tournaments organized regularly.</li> 
+					<li>**Enhanced Security**: Play with peace of mind knowing that our server is protected with top-notch security measures.</li> 
+					<li>**Exclusive Content**: Access unique maps, skins, and other content available only on our server.</li> 
+					<li>**Reliable Uptime**: Our server is hosted on reliable infrastructure ensuring maximum uptime and stability.</li> 
+					<li>**Fair Play**: Enjoy a fair gaming environment with active moderation to prevent cheating and abuse.</li> 
+					<li>**Rewards and Incentives**: Earn rewards and incentives through our loyalty programs and in-game achievements.</li> 
+				</ul>
+            </div>
+            <div class="section">
+                <h2>Contact</h2>
+                <p>Want to team up for an adventure or just chat about strategies? Reach out to AK Arctic Gamer!</p>
+                <img class="profile-pic" src="{{ url_for('static', filename='images/ak-arctic-gamer.jpg') }}" alt="AK Arctic Gamer">
+                <button class="button">Contact AK</button>
+            </div>
+        </div>
+    </div>
+	
+    <!-- Audio Player -->
+    <audio controls autoplay>
+        <source src="{{ url_for('static', filename='audio/ak-server.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
